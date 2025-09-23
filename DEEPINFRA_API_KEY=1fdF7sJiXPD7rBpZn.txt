@@ -1,0 +1,2 @@
+DEEPINFRA_API_KEY=1fdF7sJiXPD7rBpZn6FOTVKH1ERVHBQi
+MODEL_ID=meta-llama/Meta-Llama-3-8B-Instruct

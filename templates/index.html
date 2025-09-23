@@ -1,0 +1,51 @@
+Powered by LLAMA 3.1
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CodeFixer</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/highlight.min.js">
+</head>
+<body>
+    <button class="toggle-dark" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <div class="container">
+        <h1>🔧 CodeFixer <span class="subtitle">(LLAMA 3.1)</span></h1>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="post" action="/fix">
+            <textarea name="code" rows="15" cols="80" placeholder="Paste your buggy code here...">{{ input_code|default('') }}</textarea><br><br>
+            <button type="submit">Fix My Code</button>
+        </form>
+        {% if fixed_code %}
+            <h2 class="success-title">✅ Fixed Code:</h2>
+            <button id="copy-btn" type="button">Copy</button>
+            <pre id="fixed-code-block" class="fixed-code"><code>{{ fixed_code }}</code></pre>
+        {% endif %}
+    </div>
+    <footer>
+    Powered by LLAMA 3.1
+    </footer>
+    <script src="/static/highlight.min.js"></script>
+    <script src="/static/main.js"></script>
+    <script>
+    // Dark mode toggle
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+    }
+    // On load, set dark mode if previously enabled
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark');
+    }
+    // Highlight.js
+    if (window.hljs) {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    }
+    </script>
+</body>
+</html>
