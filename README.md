@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ![MIT License](https://img.shields.io/badge/license-MIT-green)
 
@@ -58,3 +59,6 @@ Paste your buggy code, click "Fix My Code", and get an improved version instantl
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+=======
+# Code-Fixer
+>>>>>>> 8b1674fb628bc54665e26586c67710b249c5aaca
